@@ -1,6 +1,4 @@
 == README
 
-This is the app officially known as Oreatan, its currently in development stage.
-
-It is the centralized lost and found system for Georgia Tech and is being bult
-using Ruby on Rails.
+This is the app officially known as Oreatan, its currently in development stage
+and is being using Ruby on Rails.
