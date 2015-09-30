@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150920022535) do
+ActiveRecord::Schema.define(version: 20150929200228) do
+
+  create_table "items", force: :cascade do |t|
+    t.string   "type"
+    t.string   "title"
+    t.boolean  "has_id"
+    t.datetime "when_found"
+    t.string   "where_held"
+    t.boolean  "connected_lost_items"
+    t.text     "description"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
