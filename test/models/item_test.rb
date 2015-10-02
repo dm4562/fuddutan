@@ -2,9 +2,9 @@ require 'test_helper'
 
 class ItemTest < ActiveSupport::TestCase
   def setup
-    @item = Item.new type: "Electronics", title: "iPhone 5s", has_id: false,
+    @item = Item.new(type: "Electronics", title: "iPhone 5s", has_id: false,
       where_found: "Clough Undergraduate Learning Commons", when_found: Time.now, where_held: "Library", connected_lost_items: false,
-      description: "Black iPhone with screen cracked at the top right corner. Batman wallpaper"
+      description: "Black iPhone with screen cracked at the top right corner. Batman wallpaper")
   end
 
   test "should be valid" do

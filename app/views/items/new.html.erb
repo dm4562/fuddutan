@@ -1,0 +1,29 @@
+<% provide(:title, 'Add Lost Item') %>
+<h1>Add Lost Items</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@item) do |f| %>
+
+      <%= f.label :where_held %>
+      <%= f.collection_select :where_held, Building.order(:name), :id, :name %>
+
+      <%= f.label :where_found %>
+      <%= f.text_field :where_found, class: 'form-control' %>
+
+      <%= f.label :when_found %>
+      <%= f.datetime_field :when_found %>
+
+      <%= f.label :type %>
+      <%= f.text_field :type, class: 'form-control' %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control' %>
+
+      <%= f.submit "Add Lost Item", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
