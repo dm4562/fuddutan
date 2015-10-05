@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151004015001) do
+ActiveRecord::Schema.define(version: 20151005222437) do
 
   create_table "buildings", force: :cascade do |t|
     t.string   "name"
@@ -22,15 +22,16 @@ ActiveRecord::Schema.define(version: 20151004015001) do
   create_table "items", force: :cascade do |t|
     t.string   "item_type"
     t.string   "title"
-    t.boolean  "has_id"
+    t.boolean  "has_id",      default: false
     t.datetime "when_found"
-    t.integer  "where_held"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "where_found"
+    t.integer  "building_id"
   end
 
+  add_index "items", ["building_id"], name: "index_items_on_building_id"
   add_index "items", ["title"], name: "index_items_on_title"
 
   create_table "users", force: :cascade do |t|

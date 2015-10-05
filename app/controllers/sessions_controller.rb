@@ -1,6 +1,12 @@
 class SessionsController < ApplicationController
 
   def new
+    if session[:logged_in?]
+      @current_user = User.find_by id: session[:user_id]
+      redirect_to @current_user
+    else
+      render 'new'  
+    end
   end
 
   def create
