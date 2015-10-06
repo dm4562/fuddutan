@@ -1,13 +1,17 @@
-<%= grid(@grid) do |g|
-  g.column name: 'Item Type', attribute: 'item_type'
-  g.column name: 'Title', attribute: 'title'
-  g.column name: 'Has ID', attribute: 'has_id'
-  g.column name: 'When Found' do |item|
-    item.when_found
-  end
-  g.column name: 'Where Held', attribute: 'name', assoc: :building do |item|
-    item.building.name
-  end
-  g.column name: 'Where Found', attribute: 'where_found'
-  g.column name: 'Description', attribute: 'description'
-end %>
+<div class="container-fluid table-responsive">
+  <%= grid(@grid) do |g|
+    g.column name: 'Item Type', attribute: 'name', assoc: :item_type do |item|
+      item.item_type.name
+    end
+    g.column name: 'Title', attribute: 'title'
+    g.column name: 'Has ID', attribute: 'has_id'
+    g.column name: 'When Found' do |item|
+      item.when_found
+    end
+    g.column name: 'Where Held', attribute: 'name', assoc: :building do |item|
+      item.building.name
+    end
+    g.column name: 'Where Found', attribute: 'where_found'
+    g.column name: 'Description', attribute: 'description'
+  end %>
+</div>

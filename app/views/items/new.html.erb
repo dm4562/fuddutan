@@ -1,5 +1,6 @@
 <% provide(:title, 'Add Lost Item') %>
 <% @buildings = Building.all %>
+<% @item_types = ItemType.all %>
 <h1>Add Lost Items</h1>
 
 <div class="row">
@@ -9,7 +10,7 @@
       <%= f.input :building_id, collection: @buildings, input_html: { class: 'dropdown-toggle' } %>
       <%= f.input :where_found, input_html: { class: 'form-control' } %>
       <%= f.input :when_found, as: :datetime_picker %>
-      <%= f.input :item_type, input_html: { class: 'form-control' } %>
+      <%= f.input :item_type_id, collection: @item_types, input_html: { class: 'dropdown-toggle' } %>
       <%= f.input :title, input_html: { class: 'form-control' } %>
       <%= f.input :description, input_html: { class: 'form-control' } %>
       <%= f.input :has_id, label: "Has ID?", as: :boolean, checked_value: true, unchecked_value: false %>

@@ -1,7 +1,8 @@
 class Item < ActiveRecord::Base
   belongs_to :building
+  belongs_to :item_type
   before_save { self.title = title.downcase }
-  validates :item_type, presence: true
+  validates :item_type_id, presence: true
   validates :title, presence: true, length: { maximum: 255 }
   validates_inclusion_of :has_id, in: [true, false]
   validates :where_found, presence: true

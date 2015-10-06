@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @grid = initialize_grid(Item,
-      include: :building,
+      include: [:building, :item_type],
       order: 'items.when_found',
       order_direction: 'desc'
       )
@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    allow = [:building_id, :where_found, :when_found, :item_type, :title, :description, :has_id]
+    allow = [:building_id, :where_found, :when_found, :item_type_id, :title, :description, :has_id]
     params.require(:item).permit(allow)
   end
 end
