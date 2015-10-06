@@ -1,4 +1,4 @@
 == README
 
 This is the app officially known as Oreatan, its currently in development stage
-and is being using Ruby on Rails.
+and is being built using Ruby on Rails.
