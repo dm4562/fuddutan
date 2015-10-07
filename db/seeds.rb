@@ -8,12 +8,29 @@
 
 require 'csv'
 
-csv_text = File.read(Rails.root.join('lib','seeds','item_types.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'item_types.csv'))
 csv_data = CSV.parse csv_text, headers: true
 csv_data.each do |row|
-  # puts row.to_hash
   item_type = ItemType.new
   item_type.name = row["name"]
   item_type.save
   puts "#{item_type.name} saved!"
 end
+
+buildings_text = File.read(Rails.root.join('lib', 'seeds', 'buildings.csv'))
+buildings_data = CSV.parse buildings_text, headers: true
+buildings_data.each do |row|
+  building = Building.new
+  building.name = row['buildings']
+  building.save
+  puts "#{building.name} inserted!"
+end
+
+# item = Item.new building_id:
+user = User.new
+user.name = 'Dhruv Mehra'
+user.email = 'dhruv@gmail.com'
+user.password = 'dhruvmehra'
+user.password_confirmation = 'dhruvmehra'
+user.save
+puts "#{user.name} inserted"

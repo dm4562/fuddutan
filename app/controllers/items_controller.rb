@@ -1,10 +1,17 @@
 class ItemsController < ApplicationController
   def index
-    @grid = initialize_grid(Item,
-      include: [:building, :item_type],
-      order: 'items.when_found',
-      order_direction: 'desc'
-      )
+    if session[:logged_in?]
+      @current_user = User.find_by id: session[:user_id]
+      if @current_user
+        @grid = initialize_grid(Item,
+          include: [:building, :item_type],
+          order: 'items.when_found',
+          order_direction: 'desc'
+          )
+      else
+        redirect_to login_path
+      end
+    end
   end
 
   def new
@@ -20,7 +27,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       flash[:success] = "Item succesfully added"
-      redirect_to index
+      redirect_to items_path
     else
       render 'new'
     end
