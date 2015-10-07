@@ -63,6 +63,25 @@ p {
 
 /* header */
 
+.button_to {
+  color: $gray;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  &:hover {
+    color: $gray-darker;
+  }
+}
+
+form .button_to {
+  background-color: none;
+  border: 0px;
+}
+.logout {
+    background-color: black;
+    padding-top: 17px;
+}
+
 #logo {
   float: left;
   margin-right: 10px;

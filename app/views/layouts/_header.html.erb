@@ -12,12 +12,12 @@
             <ul class="dropdown-menu"> -->
               <li>
                 <%= link_to("Log out", logout_url, method: :delete)%>
-                <!-- <a href="<% logout_path %>" data-method="delete" rel="nofollow">Log out</a> -->
-              </li>
+                  <!-- <a href="<% logout_path %>" data-method="delete" rel="nofollow">Log out</a> -->
+                </li>
             <!-- </ul>
           </li> -->
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>
+          <li><%link_to "Log in", login_path %></li>
         <% end %>
       </ul>
     </nav>
