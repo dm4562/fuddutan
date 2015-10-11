@@ -3,19 +3,20 @@
 <% @item_types = ItemType.all %>
 <h1>Add Lost Items</h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= simple_form_for(@item) do |f| %>
-      <%= render 'shared/add_item_error_messages' %>
-      <%= f.input :building_id, collection: @buildings, input_html: { class: 'dropdown-toggle' } %>
-      <%= f.input :where_found, input_html: { class: 'form-control' } %>
-      <%= f.input :when_found, as: :datetime_picker %>
-      <%= f.input :item_type_id, collection: @item_types, input_html: { class: 'dropdown-toggle' } %>
-      <%= f.input :title, input_html: { class: 'form-control' } %>
-      <%= f.input :description, input_html: { class: 'form-control' } %>
-      <%= f.input :has_id, label: "Has ID?", as: :boolean, checked_value: true, unchecked_value: false %>
-      <%= f.button :submit, input_html: { class: "btn btn-primary" } %>
-    <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= simple_form_for(@item) do |f| %>
+        <%= render 'shared/add_item_error_messages' %>
+        <%= f.input :building_id, collection: @buildings, input_html: { class: 'dropdown-toggle' } %>
+        <%= f.input :where_found, input_html: { class: 'form-control' } %>
+        <%= f.input :when_found, as: :datetime_picker %>
+        <%= f.input :item_type_id, collection: @item_types, input_html: { class: 'dropdown-toggle' } %>
+        <%= f.input :title, input_html: { class: 'form-control' } %>
+        <%= f.input :description, input_html: { class: 'form-control' } %>
+        <%= f.input :has_id, label: "Has ID?", as: :boolean, checked_value: true, unchecked_value: false %>
+        <%= f.button :submit, input_html: { class: "btn btn-primary" } %>
+      <% end %>
     </div>
   </div>
 </div>
