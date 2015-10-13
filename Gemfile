@@ -26,6 +26,7 @@ gem 'bootstrap3-datetimepicker-rails',      '~> 4.14.30'
 gem "wice_grid",                            '3.6.0.pre4'
 gem 'font-awesome-sass',                    '~> 4.3'
 gem 'bootstrap-datepicker-rails'
+gem 'devise'
 gem 'sdoc',                                 '0.4.0', group: :doc
 
 group :development, :test do

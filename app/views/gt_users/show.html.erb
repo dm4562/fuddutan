@@ -1,0 +1,14 @@
+<h1><%= @gt_user.name %></h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div>
+        <%= link_to "Add Lost Item", new_item_path, class: 'btn btn-default form-control', id: 'user-show-button' %>
+      </div>
+      <div>
+        <%= link_to "Find Lost Item", items_path, class: 'btn btn-default form-control', id: 'user-show-button' %>
+      </div>
+    </div>
+  </div>
+</div>

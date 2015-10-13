@@ -1,25 +1,25 @@
 class ItemsController < ApplicationController
   def index
-    if session[:logged_in?]
+    if gt_user_signed_in?
       @current_user = User.find_by id: session[:user_id]
-      if @current_user
+      if @current_user = current_gt_user
         @grid = initialize_grid(Item,
           include: [:building, :item_type],
           order: 'items.when_found',
           order_direction: 'desc'
           )
       else
-        redirect_to login_path
+        redirect_to new_gt_user_session_path
       end
     end
   end
 
   def new
     @item = Item.new
-    if session[:logged_in?]
+    if gt_user_signed_in?
       render :new
     else
-      redirect_to root_path
+      redirect_to new_gt_user_session_path
     end
   end
 

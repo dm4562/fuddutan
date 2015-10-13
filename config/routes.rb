@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  root                  'sessions#new'
+  devise_for :gt_users
+  root                  'gt_users#show'
   get     'signup'  =>  'users#new'
   get     'login'   =>  'sessions#new'
   post    'login'   =>  'sessions#create'
   delete  'logout'  =>  'sessions#destroy'
   resources :users
+  resources :gt_users, only: [:show]
   resources :items
 
 
