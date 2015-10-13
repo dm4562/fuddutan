@@ -27,7 +27,7 @@ buildings_data.each do |row|
 end
 
 # item = Item.new building_id:
-user = User.new
+user = GtUser.new
 user.name = 'Dhruv Mehra'
 user.email = 'dhruv@gmail.com'
 user.password = 'dhruvmehra'
