@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
     if gt_user_signed_in?
-      @current_user = User.find_by id: session[:user_id]
+      @current_user = current_gt_user
       if @current_user = current_gt_user
         @grid = initialize_grid(Item,
           include: [:building, :item_type],
