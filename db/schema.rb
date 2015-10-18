@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013012304) do
+ActiveRecord::Schema.define(version: 20151018184311) do
 
   create_table "buildings", force: :cascade do |t|
     t.string   "name"
@@ -46,19 +46,32 @@ ActiveRecord::Schema.define(version: 20151013012304) do
 
   create_table "items", force: :cascade do |t|
     t.string   "title"
-    t.boolean  "has_id",       default: false
+    t.boolean  "has_id",         default: false
     t.datetime "when_found"
     t.text     "description"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "where_found"
     t.integer  "building_id"
     t.integer  "item_type_id"
+    t.integer  "return_user_id"
   end
 
   add_index "items", ["building_id"], name: "index_items_on_building_id"
   add_index "items", ["item_type_id"], name: "index_items_on_item_type_id"
+  add_index "items", ["return_user_id"], name: "index_items_on_return_user_id"
   add_index "items", ["title"], name: "index_items_on_title"
+
+  create_table "return_users", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "gtid"
+    t.string   "state_id"
+    t.integer  "items_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "return_users", ["items_id"], name: "index_return_users_on_items_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

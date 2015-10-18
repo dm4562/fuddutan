@@ -1,6 +1,7 @@
 class Item < ActiveRecord::Base
   belongs_to :building
   belongs_to :item_type
+  belongs_to :return_user
   before_save { self.title = title.downcase }
   validates :item_type_id, presence: true
   validates :title, presence: true, length: { maximum: 255 }
