@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # get     'login'   =>  'sessions#new'
   # post    'login'   =>  'sessions#create'
   # delete  'logout'  =>  'sessions#destroy'
-  resources :users
+  resources :return_users
   resources :gt_users, only: [:show]
   resources :items
 
