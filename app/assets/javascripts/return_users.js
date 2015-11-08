@@ -1,3 +1,15 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+
+$(document).ready(function() {
+  $("#new_return_user").hide();
+  $("#edit_item_1").hide();
+
+  $('#select_person').click(function() {
+    console.log("saw select person click!");
+    $("#edit_item_1").show(200);
+  });
+
+  $('#create_person').click(function() {
+    console.log("saw create person click!");
+    $("#new_return_user").show(200);
+  });
+});

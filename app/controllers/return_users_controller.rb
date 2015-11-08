@@ -2,7 +2,8 @@ class ReturnUsersController < ApplicationController
 
   def new
     @return_user = ReturnUser.new
-    @item = Item.find(params[:item_id])
+    session[:return_user_item_id] ||= params[:item_id]
+    @item = Item.find(session[:return_user_item_id])
     if gt_user_signed_in?
       render :new
     else
@@ -13,10 +14,11 @@ class ReturnUsersController < ApplicationController
   def create
     @return_user = ReturnUser.new(return_user_params)
     if @return_user.save
-      @item = Item.find(params[:return_user][:item_id])
+      @item = Item.find(session[:return_user_item_id])
       @item.return_user_id = @return_user.id
       if @item.save
         flash[:success] = "Person created and item returned!"
+        session[:return_user_item_id] = nil
         redirect_to items_path
       else
         redirect_to new_return_user_path
