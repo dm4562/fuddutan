@@ -4,9 +4,6 @@
       item.item_type.name
     end
     g.column name: 'Title', attribute: 'title'
-    # g.column name: 'Has ID', attribute: 'has_id' do |item|
-    #   item.has_id? ? "Yes" : "No"
-    # end
     g.column name: 'When Found' do |item|
       item.when_found.to_s(:long)
     end
