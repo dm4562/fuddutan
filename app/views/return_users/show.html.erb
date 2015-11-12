@@ -1,0 +1,11 @@
+<h1><%= @return_user.name %></h1>
+
+<div class="container">
+  <p>
+    <% if @return_user.gtid? %>
+      GTID: <%= @return_user.gtid %>
+    <% else %>
+      State ID: <%= @return_user.state_id %>
+    <% end %>
+  </p>
+</div>

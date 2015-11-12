@@ -29,6 +29,7 @@ class ReturnUsersController < ApplicationController
   end
 
   def show
+    @return_user = ReturnUser.find(params[:id])
   end
 
   private

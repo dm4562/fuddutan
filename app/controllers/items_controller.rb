@@ -43,10 +43,19 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @item = Item.find params[:id]
+  end
+
   private
 
   def item_params
     allow = [:building_id, :where_found, :when_found, :item_type_id, :title, :description, :has_id, :return_user_id]
+    params.require(:item).permit(allow)
+  end
+
+  def update_item_params
+    allow = [:building_id, :where_found, :when_found, :item_type_id, :title, :description]
     params.require(:item).permit(allow)
   end
 end
